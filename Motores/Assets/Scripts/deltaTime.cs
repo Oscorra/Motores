@@ -23,37 +23,31 @@ public class deltaTime : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             useDeltaTimeMovement = !useDeltaTimeMovement;
-            Debug.Log("useDeltaTimeMovement = " + useDeltaTimeMovement);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             rotationEnabled = !rotationEnabled;
-            Debug.Log("rotationEnabled = " + rotationEnabled);
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             distancePerSecond += 0.5f;
-            Debug.Log("distancePerSecond = " + distancePerSecond);
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             distancePerSecond = distancePerSecond - 0.5f;
-            Debug.Log("distancePerSecond = " + distancePerSecond);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             rotationSpeed += 15f;
-            Debug.Log("rotationSpeed = " + rotationSpeed);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             rotationSpeed -= 15f;
-            Debug.Log("rotationSpeed = " + rotationSpeed);
         }
 
         //Reset
@@ -61,7 +55,6 @@ public class deltaTime : MonoBehaviour
         {
             transform.position = initialPosition;
             transform.rotation = initialRotation;
-            Debug.Log("Transform reset");
         }
 
         // MOVIMIENTO
@@ -87,14 +80,14 @@ public class deltaTime : MonoBehaviour
     }
 void OnGUI()
 {
-    // Estilos (texto más grande)
+    // Estilos 
     GUIStyle boxStyle = new GUIStyle(GUI.skin.box);
     boxStyle.fontSize = 18;
     boxStyle.alignment = TextAnchor.UpperLeft;
     boxStyle.padding = new RectOffset(12, 12, 12, 12);
 
     GUIStyle labelStyle = new GUIStyle(GUI.skin.label);
-    labelStyle.fontSize = 20;   // <- tamaño del texto
+    labelStyle.fontSize = 20;   // tamaño del texto
     labelStyle.normal.textColor = Color.white;
 
     GUIStyle titleStyle = new GUIStyle(GUI.skin.label);
