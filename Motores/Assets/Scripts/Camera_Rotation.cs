@@ -9,7 +9,7 @@ public class Camera_Rotation : MonoBehaviour
     public float sensibilidadX = 200f;
     public float sensibilidadY = 150f;
 
-    [Header("L�mites verticales")]
+    [Header("Límites verticales")]
     public float minY = -20f;
     public float maxY = 60f;
 
