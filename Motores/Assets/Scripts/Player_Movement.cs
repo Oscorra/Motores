@@ -32,7 +32,8 @@ public class Player_Movement : MonoBehaviour
         camRight.y = 0;
         camRight.Normalize();
 
-        direccionMovimiento = (camForward * inputZ + camRight * inputX);
+        //direccionMovimiento = (camForward * inputZ + camRight * inputX);
+        direccionMovimiento = new Vector3(inputX, 0, inputZ);
     }
 
     void FixedUpdate()

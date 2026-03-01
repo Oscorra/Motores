@@ -263,6 +263,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1473082132}
   fov: 60
+  detectionRange: 10
+  fovColor: {r: 1, g: 0, b: 0, a: 0.3}
+  fovResolution: 30
+  showFOVInGame: 1
+  playerDetected: 0
 --- !u!1 &1086956039
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,7 +293,7 @@ Transform:
   m_GameObject: {fileID: 1086956039}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.565385, y: 98, z: -4}
+  m_LocalPosition: {x: 14, y: 60, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -718,7 +723,7 @@ Transform:
   m_GameObject: {fileID: 2090310432}
   serializedVersion: 2
   m_LocalRotation: {x: 0.055340983, y: -0, z: -0, w: 0.99846756}
-  m_LocalPosition: {x: 12.84, y: 7.58, z: -5.76}
+  m_LocalPosition: {x: 14.4, y: 60.82, z: 11.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
