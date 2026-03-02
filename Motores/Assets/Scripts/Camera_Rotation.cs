@@ -14,7 +14,7 @@ public class Camera_Rotation : MonoBehaviour
     public float maxY = 60f;
 
     [Header("Distancia y objetivo")]
-    public Transform objetivo;   // El objeto dentro del jugador
+    public Transform objetivo;
     public float distancia = 5f;
     public float altura = 2f;
 
@@ -33,7 +33,7 @@ public class Camera_Rotation : MonoBehaviour
 
     private void LateUpdate()
     {
-        // Movimiento del rat�n
+        // Movimiento del raton
         float mouseX = Input.GetAxis("Mouse X") * sensibilidadX * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * sensibilidadY * Time.deltaTime;
 
