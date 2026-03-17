@@ -882,8 +882,8 @@ GameObject:
   - component: {fileID: 344631180}
   - component: {fileID: 344631179}
   - component: {fileID: 344631178}
-  m_Layer: 8
-  m_Name: Sphere_Blue
+  m_Layer: 9
+  m_Name: Sphere_Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4017,7 +4017,7 @@ GameObject:
   - component: {fileID: 1604182622}
   - component: {fileID: 1604182621}
   - component: {fileID: 1604182620}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Sphere_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4866,8 +4866,8 @@ GameObject:
   - component: {fileID: 2124443560}
   - component: {fileID: 2124443559}
   - component: {fileID: 2124443558}
-  m_Layer: 7
-  m_Name: Sphere_Green
+  m_Layer: 11
+  m_Name: Sphere_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
