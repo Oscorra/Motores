@@ -9,6 +9,9 @@ public class Player_Movement : MonoBehaviour
 
     public float multiplicadorDesplazamiento = 8.0f;
     public Transform cameraTransform;
+
+    private Animator move;
+
     public float inputX { get; private set; }
     public float inputZ { get; private set; }
     private Vector3 direccionMovimiento;
@@ -17,6 +20,7 @@ public class Player_Movement : MonoBehaviour
     {
         m_Renderer_Jugador = GetComponent<MeshRenderer>();
         rb_Jugador = GetComponent<Rigidbody>();
+        move = GetComponent<Animator>();
     }
 
     void Update()
@@ -32,13 +36,13 @@ public class Player_Movement : MonoBehaviour
         camRight.y = 0;
         camRight.Normalize();
 
-        //direccionMovimiento = (camForward * inputZ + camRight * inputX);
-        direccionMovimiento = new Vector3(inputX, 0, inputZ);
+        // Movimiento relativo a la cámara
+        direccionMovimiento = (camForward * inputZ + camRight * inputX);
     }
 
     void FixedUpdate()
     {
-        if (direccionMovimiento.sqrMagnitude > 0.1)
+        if (direccionMovimiento.sqrMagnitude > 0.1f)
         {
             direccionMovimiento.Normalize();
             Quaternion rotacionObjetivo = Quaternion.LookRotation(direccionMovimiento, Vector3.up);
@@ -49,5 +53,11 @@ public class Player_Movement : MonoBehaviour
         }
 
         Vector3 movimientoLocal = transform.InverseTransformDirection(direccionMovimiento);
+
+        if (move != null)
+        {
+            move.SetFloat("VelZ", movimientoLocal.z);
+            move.SetFloat("VelX", movimientoLocal.x);
+        }
     }
 }
