@@ -16,6 +16,11 @@ public class Player_Movement : MonoBehaviour
     public float inputZ { get; private set; }
     private Vector3 direccionMovimiento;
 
+    [Header("Salto")]
+    public float fuerzaSalto = 6.0f;
+    private bool estaEnSuelo;
+    private bool saltoPendiente;
+
     void Start()
     {
         m_Renderer_Jugador = GetComponent<MeshRenderer>();
@@ -36,8 +41,12 @@ public class Player_Movement : MonoBehaviour
         camRight.y = 0;
         camRight.Normalize();
 
-        // Movimiento relativo a la cámara
         direccionMovimiento = (camForward * inputZ + camRight * inputX);
+
+        if (Input.GetKeyDown(KeyCode.Space) && estaEnSuelo)
+        {
+            saltoPendiente = true;
+        }
     }
 
     void FixedUpdate()
@@ -52,6 +61,13 @@ public class Player_Movement : MonoBehaviour
             rb_Jugador.MovePosition(direccion);
         }
 
+        // Aplicar salto
+        if (saltoPendiente)
+        {
+            rb_Jugador.AddForce(Vector3.up * fuerzaSalto, ForceMode.Impulse);
+            saltoPendiente = false;
+        }
+
         Vector3 movimientoLocal = transform.InverseTransformDirection(direccionMovimiento);
 
         if (move != null)
@@ -59,5 +75,15 @@ public class Player_Movement : MonoBehaviour
             move.SetFloat("VelZ", movimientoLocal.z);
             move.SetFloat("VelX", movimientoLocal.x);
         }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        estaEnSuelo = true;
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        estaEnSuelo = false;
     }
 }

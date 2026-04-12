@@ -2602,7 +2602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  forceAmount: 100
+  forceAmount: 1000
   direction: {x: 0, y: 0, z: 1}
 --- !u!1 &1275431695
 GameObject:
@@ -3384,7 +3384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  forceAmount: 100
+  forceAmount: 1000
   direction: {x: 0, y: 0, z: 1}
 --- !u!1 &1603462613
 GameObject:
@@ -3799,7 +3799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  forceAmount: 100
+  forceAmount: 1000
   direction: {x: 0, y: 0, z: 1}
 --- !u!1 &1728595272
 GameObject:
@@ -4104,7 +4104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  forceAmount: 100
+  forceAmount: 1000
   direction: {x: 0, y: 0, z: 1}
 --- !u!1 &1798497091
 GameObject:
