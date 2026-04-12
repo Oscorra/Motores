@@ -10,9 +10,9 @@ public class CoinPickup : MonoBehaviour
     public int pointValue = 10;
     public AudioSource moneda;
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.GetComponent<Player_Movement>() != null)
+        if (collision.gameObject.gameObject.CompareTag("Player"))
         {
             OnCoinCollected.Invoke(pointValue);
             Destroy(gameObject);
