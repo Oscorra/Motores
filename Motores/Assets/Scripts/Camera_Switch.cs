@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraLerpSwitch : MonoBehaviour
+public class Camera_Switch : MonoBehaviour
 {
     public Transform playerView;
     public Transform topDownView;
@@ -13,8 +13,16 @@ public class CameraLerpSwitch : MonoBehaviour
     bool toTopDown = false;
     bool isTransitioning = false;
 
+    Camera cam;
+
+    void Start()
+    {
+        cam = GetComponent<Camera>();
+    }
+
     void Update()
     {
+        // Cambiar cámara
         if (Input.GetKeyDown(KeyCode.C))
         {
             toTopDown = !toTopDown;
@@ -23,28 +31,29 @@ public class CameraLerpSwitch : MonoBehaviour
             rotationScript.enabled = !toTopDown;
         }
 
-        if (!isTransitioning) return;
-
-        Transform target = toTopDown ? topDownView : playerView;
-
-        transform.position = Vector3.Lerp(
-            transform.position,
-            target.position,
-            Time.deltaTime * transitionSpeed
-        );
-
-        transform.rotation = Quaternion.Lerp(
-            transform.rotation,
-            target.rotation,
-            Time.deltaTime * transitionSpeed
-        );
-
-        if (Vector3.Distance(transform.position, target.position) < 0.05f)
+        // Transición suave
+        if (isTransitioning)
         {
-            transform.position = target.position;
-            transform.rotation = target.rotation;
-            isTransitioning = false;
+            Transform target = toTopDown ? topDownView : playerView;
+
+            transform.position = Vector3.Lerp(
+                transform.position,
+                target.position,
+                Time.deltaTime * transitionSpeed
+            );
+
+            transform.rotation = Quaternion.Lerp(
+                transform.rotation,
+                target.rotation,
+                Time.deltaTime * transitionSpeed
+            );
+
+            if (Vector3.Distance(transform.position, target.position) < 0.05f)
+            {
+                transform.position = target.position;
+                transform.rotation = target.rotation;
+                isTransitioning = false;
+            }
         }
     }
 }
-
